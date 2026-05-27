@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://trpc-group.github.io/trpc-agent-go/session/redis/">
+        <link rel="canonical" href="https://trpc-group.github.io/trpc-agent-go/session/tdsql/">
       
       
-        <link rel="prev" href="../sqlite/">
+        <link rel="prev" href="../mysql/">
       
       
-        <link rel="next" href="../mysql/">
+        <link rel="next" href="../postgres/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Redis Session - tRPC-Agent-Go</title>
+        <title>TDSQL Session - tRPC-Agent-Go</title>
       
     
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#redis-storage" class="md-skip">
+        <a href="#tdsql-distributed-storage" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Redis Session
+              TDSQL Session
             
           </span>
         </div>
@@ -172,7 +172,7 @@
           </li>
         
           <li class="md-select__item">
-            <a href="../../zh/session/redis/" hreflang="zh" class="md-select__link">
+            <a href="../../zh/session/tdsql/" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -1083,6 +1083,52 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redis Session
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MySQL Session
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1100,7 +1146,7 @@
   
   
   <span class="md-ellipsis">
-    Redis Session
+    TDSQL Session
     
   </span>
   
@@ -1113,7 +1159,7 @@
   
   
   <span class="md-ellipsis">
-    Redis Session
+    TDSQL Session
     
   </span>
   
@@ -1154,100 +1200,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-configuration" class="md-nav__link">
+  <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Configuration
+      Quick Start
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instance-reuse" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instance Reuse
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#with-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      With Summary
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#async-persistence" class="md-nav__link">
-    <span class="md-ellipsis">
-      Async Persistence
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#user-session-index" class="md-nav__link">
-    <span class="md-ellipsis">
-      User Session Index
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-compatibility-mode-compatmode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Storage Compatibility Mode (CompatMode)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Storage Compatibility Mode (CompatMode)">
+    <nav class="md-nav" aria-label="Quick Start">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#new-deployments-no-legacy-data" class="md-nav__link">
+  <a href="#running-the-example" class="md-nav__link">
     <span class="md-ellipsis">
-      New Deployments (No Legacy Data)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#single-node-or-small-scale-upgrade" class="md-nav__link">
-    <span class="md-ellipsis">
-      Single Node or Small-Scale Upgrade
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#large-scale-canary-upgrade" class="md-nav__link">
-    <span class="md-ellipsis">
-      Large-Scale Canary Upgrade
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compatibility-mode-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compatibility Mode Reference
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#userstate-migration-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      UserState Migration Notes
+      Running the Example
     </span>
   </a>
   
@@ -1259,18 +1224,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
+  <a href="#sharding-strategy" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Cases
+      Sharding Strategy
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#table-schema" class="md-nav__link">
     <span class="md-ellipsis">
-      Notes
+      Table Schema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Limitations
     </span>
   </a>
   
@@ -1280,52 +1254,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mysql/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    MySQL Session
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tdsql/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    TDSQL Session
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -2415,100 +2343,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-configuration" class="md-nav__link">
+  <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Configuration
+      Quick Start
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instance-reuse" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instance Reuse
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#with-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      With Summary
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#async-persistence" class="md-nav__link">
-    <span class="md-ellipsis">
-      Async Persistence
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#user-session-index" class="md-nav__link">
-    <span class="md-ellipsis">
-      User Session Index
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-compatibility-mode-compatmode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Storage Compatibility Mode (CompatMode)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Storage Compatibility Mode (CompatMode)">
+    <nav class="md-nav" aria-label="Quick Start">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#new-deployments-no-legacy-data" class="md-nav__link">
+  <a href="#running-the-example" class="md-nav__link">
     <span class="md-ellipsis">
-      New Deployments (No Legacy Data)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#single-node-or-small-scale-upgrade" class="md-nav__link">
-    <span class="md-ellipsis">
-      Single Node or Small-Scale Upgrade
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#large-scale-canary-upgrade" class="md-nav__link">
-    <span class="md-ellipsis">
-      Large-Scale Canary Upgrade
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compatibility-mode-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compatibility Mode Reference
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#userstate-migration-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      UserState Migration Notes
+      Running the Example
     </span>
   </a>
   
@@ -2520,18 +2367,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
+  <a href="#sharding-strategy" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Cases
+      Sharding Strategy
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#table-schema" class="md-nav__link">
     <span class="md-ellipsis">
-      Notes
+      Table Schema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Limitations
     </span>
   </a>
   
@@ -2553,7 +2409,7 @@
 
 
   
-    <a href="https://github.com/trpc-group/trpc-agent-go/edit/main/docs/mkdocs/en/session/redis.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/trpc-group/trpc-agent-go/edit/main/docs/mkdocs/en/session/tdsql.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2562,27 +2418,24 @@
     
       
     
-    <a href="https://github.com/trpc-group/trpc-agent-go/raw/main/docs/mkdocs/en/session/redis.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/trpc-group/trpc-agent-go/raw/main/docs/mkdocs/en/session/tdsql.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="redis-storage">Redis Storage</h1>
-<p>Redis storage is suitable for production environments and distributed applications, providing high performance and automatic expiration capabilities.</p>
+<h1 id="tdsql-distributed-storage">TDSQL Distributed Storage</h1>
+<p>TDSQL mode builds on the <a href="../mysql/">MySQL Session backend</a>. Enable it with <code>WithTDSQLSharding(true)</code>. The API is <strong>fully compatible</strong> with MySQL Session — all interfaces and configuration options are shared. Only the DDL and sharding strategy differ.</p>
 <h2 id="features">Features</h2>
 <ul>
-<li>Redis-based persistence for sessions, events, and state</li>
-<li>Supports Redis Standalone / Sentinel / Cluster deployment modes</li>
-<li>Independent TTL control for Session, AppState, and UserState</li>
-<li>Optional async persistence to reduce write latency</li>
-<li>Optional OpenTelemetry tracing</li>
-<li>Async session summary generation</li>
-<li>AppendEvent / GetSession hook extension points</li>
+<li>✅ Built on <a href="../mysql/">MySQL Session backend</a>, fully API-compatible</li>
+<li>✅ Automatic TDSQL sharded table DDL (<code>shardkey=user_id</code>)</li>
+<li>✅ Internally handles DML shard routing, TTL cleanup, and other TDSQL compatibility logic</li>
+<li>✅ Supports all MySQL Session features: soft delete, table prefix, async persistence, summarizer, hooks, etc.</li>
 </ul>
 <h2 id="configuration-options">Configuration Options</h2>
-<p><strong>Connection:</strong></p>
+<p>TDSQL mode adds only one configuration option:</p>
 <table>
 <thead>
 <tr>
@@ -2594,164 +2447,15 @@
 </thead>
 <tbody>
 <tr>
-<td><code>WithRedisClientURL(url string)</code></td>
-<td><code>string</code></td>
-<td>-</td>
-<td>Create Redis client via URL, format: <code>redis://[username:password@]host:port[/database]</code></td>
-</tr>
-<tr>
-<td><code>WithRedisInstance(instanceName string)</code></td>
-<td><code>string</code></td>
-<td>-</td>
-<td>Use a pre-configured Redis instance (lower priority than URL)</td>
-</tr>
-<tr>
-<td><code>WithExtraOptions(extraOptions ...any)</code></td>
-<td><code>[]any</code></td>
-<td><code>nil</code></td>
-<td>Extra options for the Redis client, passed to the underlying client builder</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Session:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>WithSessionEventLimit(limit int)</code></td>
-<td><code>int</code></td>
-<td><code>1000</code></td>
-<td>Maximum events per session</td>
-</tr>
-<tr>
-<td><code>WithSessionTTL(ttl time.Duration)</code></td>
-<td><code>time.Duration</code></td>
-<td><code>0</code> (no expiry)</td>
-<td>TTL for session state and events; negative values are treated as 0</td>
-</tr>
-<tr>
-<td><code>WithAppStateTTL(ttl time.Duration)</code></td>
-<td><code>time.Duration</code></td>
-<td><code>0</code> (no expiry)</td>
-<td>TTL for app-level state</td>
-</tr>
-<tr>
-<td><code>WithUserStateTTL(ttl time.Duration)</code></td>
-<td><code>time.Duration</code></td>
-<td><code>0</code> (no expiry)</td>
-<td>TTL for user-level state</td>
-</tr>
-<tr>
-<td><code>WithKeyPrefix(prefix string)</code></td>
-<td><code>string</code></td>
-<td><code>""</code></td>
-<td>Redis key prefix; all keys will start with <code>prefix:</code>. Useful when multiple apps share one Redis instance</td>
-</tr>
-<tr>
-<td><code>WithCompatMode(mode CompatMode)</code></td>
-<td><code>CompatMode</code></td>
-<td><code>CompatModeLegacy</code></td>
-<td>Storage compatibility mode. Options: <code>CompatModeNone</code>, <code>CompatModeLegacy</code>, <code>CompatModeTransition</code>. See <a href="#storage-compatibility-mode-compatmode">Storage Compatibility Mode (CompatMode)</a></td>
-</tr>
-<tr>
-<td><code>WithEnableUserSessionIndex(enable bool)</code></td>
+<td><code>WithTDSQLSharding(enable bool)</code></td>
 <td><code>bool</code></td>
 <td><code>false</code></td>
-<td>Enable the per-user session index for HashIdx. See <a href="#user-session-index">User Session Index</a></td>
+<td>Enable TDSQL distributed mode</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Async Persistence:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>WithEnableAsyncPersist(enable bool)</code></td>
-<td><code>bool</code></td>
-<td><code>false</code></td>
-<td>Enable async persistence. When enabled, <code>AppendEvent</code> and <code>AppendTrackEvent</code> write events to an internal channel and background workers flush them to Redis asynchronously</td>
-</tr>
-<tr>
-<td><code>WithAsyncPersisterNum(num int)</code></td>
-<td><code>int</code></td>
-<td><code>10</code></td>
-<td>Number of async persistence workers. Each worker handles one Event channel and one TrackEvent channel with a buffer size of 100</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Summary:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>WithSummarizer(s summary.SessionSummarizer)</code></td>
-<td><code>summary.SessionSummarizer</code></td>
-<td><code>nil</code></td>
-<td>Inject session summarizer. When not set, summary operations are no-ops</td>
-</tr>
-<tr>
-<td><code>WithAsyncSummaryNum(num int)</code></td>
-<td><code>int</code></td>
-<td><code>3</code></td>
-<td>Number of summary processing workers</td>
-</tr>
-<tr>
-<td><code>WithSummaryQueueSize(size int)</code></td>
-<td><code>int</code></td>
-<td><code>100</code></td>
-<td>Summary task queue size</td>
-</tr>
-<tr>
-<td><code>WithSummaryJobTimeout(timeout time.Duration)</code></td>
-<td><code>time.Duration</code></td>
-<td><code>60s</code></td>
-<td>Timeout for a single summary job</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Tracing:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>WithEnableTracing(enable bool)</code></td>
-<td><code>bool</code></td>
-<td><code>false</code></td>
-<td>Enable OpenTelemetry tracing. When enabled, operations such as <code>CreateSession</code>, <code>GetSession</code>, <code>AppendEvent</code>, <code>DeleteSession</code>, <code>AppendTrackEvent</code>, <code>CreateSessionSummary</code>, and <code>GetSessionSummaryText</code> automatically create spans</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>About Root Span</strong></p>
-<p>Session operations are executed by the Runner before and after the Agent's <code>Run()</code> call. The Agent's root span is created inside <code>agent.Run()</code>, so Session spans are not automatically attached under it. To see the full Session span chain in observability platforms like Langfuse, manually create a root span before calling <code>runner.Run()</code>:</p>
+<p>All other configuration options (connection, session, async persistence, summarizer, table prefix, hooks, etc.) are identical to <a href="../mysql/">MySQL Storage</a>. Please refer to the MySQL documentation.</p>
+<h2 id="quick-start">Quick Start</h2>
 <div class="language-go highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -2760,308 +2464,84 @@
 <span class="normal"><a href="#__codelineno-0-6">6</a></span>
 <span class="normal"><a href="#__codelineno-0-7">7</a></span>
 <span class="normal"><a href="#__codelineno-0-8">8</a></span>
-<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nx">atrace</span><span class="w"> </span><span class="s">&quot;trpc.group/trpc-go/trpc-agent-go/telemetry/trace&quot;</span>
+<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;trpc.group/trpc-go/trpc-agent-go/session/mysql&quot;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1">// Create a root span before runner.Run(), so that session spans</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1">// (create_session, get_session, append_event, etc.) become children</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1">// of this root span via context propagation.</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">span</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">atrace</span><span class="p">.</span><span class="nx">Tracer</span><span class="p">.</span><span class="nx">Start</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;my_request&quot;</span><span class="p">)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">defer</span><span class="w"> </span><span class="nx">span</span><span class="p">.</span><span class="nx">End</span><span class="p">()</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="nx">eventChan</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Run</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">userID</span><span class="p">,</span><span class="w"> </span><span class="nx">sessionID</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nx">sessionService</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">NewService</span><span class="p">(</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">WithMySQLClientDSN</span><span class="p">(</span><span class="s">&quot;user:password@tcp(tdsql-proxy:3306)/db?parseTime=true&amp;charset=utf8mb4&quot;</span><span class="p">),</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">WithTDSQLSharding</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span><span class="w">  </span><span class="c1">// Enable TDSQL distributed mode</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">WithTablePrefix</span><span class="p">(</span><span class="s">&quot;trpc_&quot;</span><span class="p">),</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">WithSessionTTL</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span><span class="p">),</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">WithSoftDelete</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-</blockquote>
-<p><strong>Hooks:</strong></p>
+<p>The only difference is the addition of <code>WithTDSQLSharding(true)</code>. All other options (<code>WithSessionEventLimit</code>, <code>WithSummarizer</code>, <code>WithEnableAsyncPersist</code>, etc.) are identical to <a href="../mysql/">MySQL Storage</a>.</p>
+<h3 id="running-the-example">Running the Example</h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TDSQL_HOST</span><span class="o">=</span>your-tdsql-proxy-host
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TDSQL_PORT</span><span class="o">=</span><span class="m">3306</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TDSQL_USER</span><span class="o">=</span>your_user
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TDSQL_PASSWORD</span><span class="o">=</span><span class="s1">&#39;your_password&#39;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TDSQL_DATABASE</span><span class="o">=</span>your_database
+</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>go<span class="w"> </span>run<span class="w"> </span>./examples/session/simple/<span class="w"> </span>-session<span class="o">=</span>tdsql
+</span></code></pre></div></td></tr></table></div>
+<h2 id="sharding-strategy">Sharding Strategy</h2>
+<p>TDSQL requires each sharded table to specify a <code>shardkey</code>. This column must appear in all PRIMARY KEYs and UNIQUE KEYs.</p>
+<p>Since all Session read/write paths naturally carry <code>user_id</code>, it is used directly as the shard key. All data for the same user lands on the same shard:</p>
 <table>
 <thead>
 <tr>
-<th>Option</th>
-<th>Type</th>
-<th>Default</th>
+<th>Table</th>
+<th>shardkey</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>WithAppendEventHook(hooks ...session.AppendEventHook)</code></td>
-<td><code>[]session.AppendEventHook</code></td>
-<td><code>nil</code></td>
-<td>Add event write hooks</td>
+<td><code>session_states</code></td>
+<td><code>user_id</code></td>
+<td>All sessions for the same user land on the same shard</td>
 </tr>
 <tr>
-<td><code>WithGetSessionHook(hooks ...session.GetSessionHook)</code></td>
-<td><code>[]session.GetSessionHook</code></td>
-<td><code>nil</code></td>
-<td>Add session read hooks</td>
+<td><code>session_events</code></td>
+<td><code>user_id</code></td>
+<td>Events co-located with sessions</td>
+</tr>
+<tr>
+<td><code>session_track_events</code></td>
+<td><code>user_id</code></td>
+<td>Track events co-located with sessions</td>
+</tr>
+<tr>
+<td><code>session_summaries</code></td>
+<td><code>user_id</code></td>
+<td>Summaries co-located with sessions</td>
+</tr>
+<tr>
+<td><code>user_states</code></td>
+<td><code>user_id</code></td>
+<td>User states co-located with sessions</td>
+</tr>
+<tr>
+<td><code>app_states</code></td>
+<td><code>noshardkey_allset</code></td>
+<td>Broadcast table, full copy on every node</td>
 </tr>
 </tbody>
 </table>
-<h2 id="basic-configuration">Basic Configuration</h2>
-<div class="language-go highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span>
-<span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span>
-<span class="normal"><a href="#__codelineno-1-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;trpc.group/trpc-go/trpc-agent-go/session/redis&quot;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">// Create via URL (recommended)</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nx">sessionService</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">NewService</span><span class="p">(</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithRedisClientURL</span><span class="p">(</span><span class="s">&quot;redis://username:password@127.0.0.1:6379/0&quot;</span><span class="p">),</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithSessionEventLimit</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="p">)</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1">// Full production configuration</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="nx">sessionService</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">NewService</span><span class="p">(</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithRedisClientURL</span><span class="p">(</span><span class="s">&quot;redis://localhost:6379/0&quot;</span><span class="p">),</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithSessionEventLimit</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithSessionTTL</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span><span class="p">),</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithAppStateTTL</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">),</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithUserStateTTL</span><span class="p">(</span><span class="mi">7</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">),</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="p">)</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="c1">// Effect:</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="c1">// - Connect to local Redis database 0</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="c1">// - Up to 1000 events per session</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="c1">// - Sessions expire after 30 minutes of inactivity (Redis TTL)</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="c1">// - App state expires after 24 hours</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="c1">// - User state expires after 7 days</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="c1">// - Uses Redis native TTL mechanism, no manual cleanup needed</span>
-</span></code></pre></div></td></tr></table></div>
-<h2 id="instance-reuse">Instance Reuse</h2>
-<p>If multiple components need to use the same Redis instance, register and reuse it:</p>
-<div class="language-go highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="nx">redisstorage</span><span class="w"> </span><span class="s">&quot;trpc.group/trpc-go/trpc-agent-go/storage/redis&quot;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="s">&quot;trpc.group/trpc-go/trpc-agent-go/session/redis&quot;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">)</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1">// Register Redis instance</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="nx">redisURL</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;redis://127.0.0.1:6379&quot;</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="nx">redisstorage</span><span class="p">.</span><span class="nx">RegisterRedisInstance</span><span class="p">(</span><span class="s">&quot;my-redis-instance&quot;</span><span class="p">,</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="nx">redisstorage</span><span class="p">.</span><span class="nx">WithClientBuilderURL</span><span class="p">(</span><span class="nx">redisURL</span><span class="p">))</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="c1">// Use in session service</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="nx">sessionService</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">NewService</span><span class="p">(</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithRedisInstance</span><span class="p">(</span><span class="s">&quot;my-redis-instance&quot;</span><span class="p">),</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithSessionEventLimit</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="p">)</span>
-</span></code></pre></div></td></tr></table></div>
-<h2 id="with-summary">With Summary</h2>
-<div class="language-go highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nx">sessionService</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">NewService</span><span class="p">(</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithRedisClientURL</span><span class="p">(</span><span class="s">&quot;redis://localhost:6379&quot;</span><span class="p">),</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithSessionEventLimit</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithSessionTTL</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span><span class="p">),</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="c1">// Summary configuration</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithSummarizer</span><span class="p">(</span><span class="nx">summarizer</span><span class="p">),</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithAsyncSummaryNum</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithSummaryQueueSize</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithSummaryJobTimeout</span><span class="p">(</span><span class="mi">120</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">),</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="p">)</span>
-</span></code></pre></div></td></tr></table></div>
-<h2 id="async-persistence">Async Persistence</h2>
-<p>When async persistence is enabled, <code>AppendEvent</code> and <code>AppendTrackEvent</code> no longer write to Redis synchronously. Instead, events are dispatched to internal channels and consumed by background worker goroutines. This significantly reduces request latency for write-sensitive scenarios.</p>
-<div class="language-go highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span>
-<span class="normal"><a href="#__codelineno-4-4">4</a></span>
-<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nx">sessionService</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">NewService</span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithRedisClientURL</span><span class="p">(</span><span class="s">&quot;redis://localhost:6379&quot;</span><span class="p">),</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithEnableAsyncPersist</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithAsyncPersisterNum</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="c1">// 10 worker goroutines</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">)</span>
-</span></code></pre></div></td></tr></table></div>
-<p>How it works:</p>
+<p><code>app_states</code> stores app-level configuration — small dataset, infrequent writes. As a broadcast table, it can be read locally on any node without cross-shard queries.</p>
+<h2 id="table-schema">Table Schema</h2>
 <ul>
-<li>Each worker goroutine owns one Event channel and one TrackEvent channel (buffer size 100).</li>
-<li><code>AppendEvent</code> selects a channel via <code>session.Hash % workerNum</code>, ensuring ordered writes for the same session.</li>
-<li>If the channel is full and the context is cancelled, <code>context.Canceled</code> is returned.</li>
-<li>Async write timeout is 2 seconds (<code>defaultAsyncPersistTimeout</code>).</li>
-<li>Calling <code>Close()</code> closes all channels and waits for workers to drain remaining tasks.</li>
+<li><strong>TDSQL schema</strong>: <a href="https://github.com/trpc-group/trpc-agent-go/blob/main/session/mysql/schema_tdsql.sql"><code>session/mysql/schema_tdsql.sql</code></a></li>
+<li><strong>MySQL schema</strong> (for comparison): <a href="https://github.com/trpc-group/trpc-agent-go/blob/main/session/mysql/schema.sql"><code>session/mysql/schema.sql</code></a></li>
 </ul>
-<blockquote>
-<p><strong>Caution</strong></p>
-<p>In async persistence mode, events still in the channel may be lost if the process crashes unexpectedly. Evaluate whether to enable this based on your data consistency requirements.</p>
-</blockquote>
-<h2 id="user-session-index">User Session Index</h2>
-<p><code>WithEnableUserSessionIndex(true)</code> is an optional capability for HashIdx storage only. It maintains a user-scoped index that maps <code>userID</code> to the session IDs created by that user.</p>
-<p>The main purpose of this index is to avoid the SCAN operation currently used by <code>ListSessions</code>.</p>
-<p>This option is intended for fresh HashIdx writes. If you enable it on an environment that already contains historical HashIdx sessions created before the index was introduced, those older sessions will not automatically appear in the index unless you migrate or rebuild the index separately.</p>
-<h2 id="storage-compatibility-mode-compatmode">Storage Compatibility Mode (CompatMode)</h2>
-<p>The new version of Redis Session uses a new storage engine (HashIdx) that distributes data across different Redis Cluster slots by user, eliminating the hotspot issue where all data was concentrated in a single slot in the old version. If you have legacy data to migrate, use <code>WithCompatMode</code> to configure compatibility mode for a smooth transition.</p>
-<blockquote>
-<p><strong>In most cases, you don't need to worry about compatibility mode</strong></p>
-<p>The default <code>CompatModeLegacy</code> mode automatically handles read/write compatibility between old and new data — <strong>just upgrade and it works</strong>. You only need to pay attention to compatibility mode configuration in these two cases:</p>
+<h2 id="known-limitations">Known Limitations</h2>
 <ol>
-<li><strong>Heavy use of UserState</strong>: The old and new engines use different Redis keys for UserState. <code>CreateSession</code>/<code>GetSession</code> only read the new key when merging UserState internally, so legacy UserState data won't automatically carry over to new sessions. If your application relies heavily on UserState, choose the appropriate compatibility mode as described below.</li>
-<li><strong>Large-scale canary deployment</strong>: When old and new instances run simultaneously, use <code>CompatModeTransition</code> to ensure mixed-deployment compatibility.</li>
-</ol>
-</blockquote>
-<h3 id="new-deployments-no-legacy-data">New Deployments (No Legacy Data)</h3>
-<p><strong>Use <code>CompatModeNone</code> directly</strong> to skip all compatibility logic and get the best performance:</p>
-<div class="language-go highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nx">sessionService</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">NewService</span><span class="p">(</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithRedisClientURL</span><span class="p">(</span><span class="s">&quot;redis://localhost:6379&quot;</span><span class="p">),</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithCompatMode</span><span class="p">(</span><span class="nx">redis</span><span class="p">.</span><span class="nx">CompatModeNone</span><span class="p">),</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">)</span>
-</span></code></pre></div></td></tr></table></div>
-<h3 id="single-node-or-small-scale-upgrade">Single Node or Small-Scale Upgrade</h3>
-<p>For single-node deployments, or when you have few enough nodes to upgrade all at once, <strong>just upgrade directly</strong> using the default <code>CompatModeLegacy</code> (no explicit configuration needed):</p>
-<div class="language-go highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nx">sessionService</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">NewService</span><span class="p">(</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithRedisClientURL</span><span class="p">(</span><span class="s">&quot;redis://localhost:6379&quot;</span><span class="p">),</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// CompatModeLegacy is the default, can be omitted</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">)</span>
-</span></code></pre></div></td></tr></table></div>
-<p>In <code>CompatModeLegacy</code> mode, newly created sessions use the new storage engine while legacy data remains accessible via fallback reads. Once legacy data expires by TTL, you can switch to <code>CompatModeNone</code>.</p>
-<h3 id="large-scale-canary-upgrade">Large-Scale Canary Upgrade</h3>
-<p>For large-scale deployments requiring canary releases where old and new instances run simultaneously, follow these steps:</p>
-<p><strong>Step 1: Canary Phase — Set <code>CompatModeTransition</code></strong></p>
-<div class="language-go highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nx">sessionService</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">NewService</span><span class="p">(</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithRedisClientURL</span><span class="p">(</span><span class="s">&quot;redis://localhost:6379&quot;</span><span class="p">),</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="nx">redis</span><span class="p">.</span><span class="nx">WithCompatMode</span><span class="p">(</span><span class="nx">redis</span><span class="p">.</span><span class="nx">CompatModeTransition</span><span class="p">),</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span>
-</span></code></pre></div></td></tr></table></div>
-<p>In Transition mode, new instances behave identically to old instances (session creation uses legacy storage, UserState dual-writes to both old and new keys), ensuring full data compatibility during mixed deployment.</p>
-<p><strong>Step 2: Full Upgrade Complete — Switch to <code>CompatModeLegacy</code></strong></p>
-<p>After all instances are upgraded, remove the <code>WithCompatMode</code> configuration (or explicitly set it to <code>CompatModeLegacy</code>). New sessions will use the new storage engine while legacy data remains accessible via fallback reads.</p>
-<p><strong>Step 3: Legacy Data Expired — Switch to <code>CompatModeNone</code></strong></p>
-<p>Once legacy data has expired by TTL (or manually cleaned up if no TTL was set), switch to <code>CompatModeNone</code> to remove the compatibility layer.</p>
-<h3 id="compatibility-mode-reference">Compatibility Mode Reference</h3>
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th>Session Read</th>
-<th>Session Write</th>
-<th>UserState Read</th>
-<th>UserState Write</th>
-<th>Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>CompatModeNone</code></td>
-<td>New engine only</td>
-<td>New engine only</td>
-<td>New key only</td>
-<td>New key only</td>
-<td><strong>New deployments</strong>, or all legacy data has expired</td>
-</tr>
-<tr>
-<td><code>CompatModeLegacy</code> (default)</td>
-<td>Legacy first, fallback to new engine</td>
-<td>New engine only</td>
-<td>New key first, fallback to old key</td>
-<td>New key only</td>
-<td><strong>Single/small-scale</strong> direct upgrade</td>
-</tr>
-<tr>
-<td><code>CompatModeTransition</code></td>
-<td>Legacy first, fallback to new engine</td>
-<td>Legacy engine only</td>
-<td>New key first, fallback to old key</td>
-<td>Dual-write both keys</td>
-<td><strong>Large-scale canary</strong>, mixed old/new instances</td>
-</tr>
-</tbody>
-</table>
-<h3 id="userstate-migration-notes">UserState Migration Notes</h3>
-<p>The old and new storage engines use different Redis keys for UserState (old: <code>userstate:{appName}:{userID}</code>, new: <code>hashidx:userstate:appName:{userID}</code>).</p>
-<ul>
-<li>In <code>CompatModeTransition</code> mode, <code>UpdateUserState</code> writes to both old and new keys. It is recommended to re-write UserState via <code>UpdateUserState</code> during the canary phase to sync data to the new key.</li>
-<li>The <code>ListUserStates</code> API in Transition and Legacy modes tries the new key first and falls back to the old key if empty. However, <code>CreateSession</code>/<code>GetSession</code> only read the new key internally when merging UserState, without fallback.</li>
-<li><strong>AppState is not affected</strong> — <code>appstate:{appName}</code> uses the same format in both engines, zero migration cost.</li>
-</ul>
-<h2 id="use-cases">Use Cases</h2>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Recommended Configuration</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>New deployment</td>
-<td><code>CompatModeNone</code></td>
-</tr>
-<tr>
-<td>Single/small-scale upgrade</td>
-<td>Default <code>CompatModeLegacy</code>, upgrade directly</td>
-</tr>
-<tr>
-<td>Large-scale canary upgrade</td>
-<td><code>CompatModeTransition</code> → <code>CompatModeLegacy</code> → <code>CompatModeNone</code></td>
-</tr>
-<tr>
-<td>Production</td>
-<td>Configure TTL, enable async persistence</td>
-</tr>
-<tr>
-<td>Distributed deployment</td>
-<td>Use Redis Cluster</td>
-</tr>
-<tr>
-<td>High concurrency</td>
-<td>Increase AsyncPersisterNum</td>
-</tr>
-</tbody>
-</table>
-<h2 id="notes">Notes</h2>
-<ol>
-<li><strong>Connection</strong>: Ensure Redis service is accessible; use connection pooling</li>
-<li><strong>TTL management</strong>: Redis natively supports TTL; no additional cleanup tasks needed</li>
-<li><strong>Memory management</strong>: Monitor Redis memory usage; configure reasonable maxmemory</li>
-<li><strong>High availability</strong>: Use Redis Sentinel or Cluster for production</li>
-<li><strong>Priority</strong>: <code>WithRedisClientURL</code> has higher priority than <code>WithRedisInstance</code></li>
-<li><strong>Async persistence risk</strong>: Events in the channel may be lost on unexpected process exit; evaluate your tolerance</li>
+<li><strong><code>session_summaries</code> column length</strong>: <code>app_name</code>, <code>session_id</code>, <code>filter_key</code> limited to 128 characters (due to InnoDB index length constraints)</li>
+<li><strong><code>user_id</code> character set</strong>: ASCII strings recommended; non-ASCII values may cause TDSQL Proxy routing instability</li>
 </ol>
 
 
@@ -3085,7 +2565,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="April 24, 2026 08:40:45 UTC">2026-04-24 08:40:45</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="May 25, 2026 10:02:13 UTC">2026-05-25 10:02:13</span>
   </span>
 
     
@@ -3095,7 +2575,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="March 5, 2026 07:26:33 UTC">2026-03-05 07:26:33</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="May 25, 2026 10:02:13 UTC">2026-05-25 10:02:13</span>
   </span>
 
     
@@ -3176,7 +2656,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../sqlite/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SQLite Session">
+          <a href="../mysql/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MySQL Session">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3186,20 +2666,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                SQLite Session
+                MySQL Session
               </div>
             </div>
           </a>
         
         
           
-          <a href="../mysql/" class="md-footer__link md-footer__link--next" aria-label="Next: MySQL Session">
+          <a href="../postgres/" class="md-footer__link md-footer__link--next" aria-label="Next: PostgreSQL Session">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                MySQL Session
+                PostgreSQL Session
               </div>
             </div>
             <div class="md-footer__button md-icon">
