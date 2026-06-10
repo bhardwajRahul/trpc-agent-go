@@ -369,6 +369,26 @@
   
 
       
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../blog/trpcagentgo/" class="md-tabs__link">
+          
+  
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1073,6 +1093,21 @@
       User Message Rewriting
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="User Message Rewriting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inject-per-run-context-messages-non-persistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inject Per-run Context Messages (non-persistent)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2941,6 +2976,215 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/trpcagentgo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A Go Agent Framework for Building Intelligent AI Applications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/graphagent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GraphAgent Seamlessly Combines AI Workflows and Agents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/agui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickly Build AG-UI-Based Agent Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A Go-Native Implementation of the Anthropic Agent Skills Specification
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A Complete Guide to AI Agent Automated Evaluation Paradigms and Engineering Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/openclaw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building an Enterprise-Grade, Secure, and Controllable OpenClaw Runtime
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blog/promptiter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A Complete Guide to Automated Prompt Iteration and Engineering Practice for AI Agents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3247,6 +3491,21 @@
       User Message Rewriting
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="User Message Rewriting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inject-per-run-context-messages-non-persistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inject Per-run Context Messages (non-persistent)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4705,6 +4964,18 @@ does, the runner returns an error immediately.</p>
 </span><span id="__span-26-46"><a id="__codelineno-26-46" name="__codelineno-26-46"></a><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>A complete example is available at <a href="https://github.com/trpc-group/trpc-agent-go/tree/main/examples/usermessagerewriter">examples/usermessagerewriter</a>.</p>
+<h4 id="inject-per-run-context-messages-non-persistent">Inject Per-run Context Messages (non-persistent)</h4>
+<p>If you need to provide extra context for <strong>this turn only</strong> (for example:
+“rules”, dynamic constraints, retrieved passages, background knowledge) without
+writing it into the session transcript, use one of these RunOptions:</p>
+<ul>
+<li><code>agent.WithInjectedContextMessages(...)</code>: inject messages <strong>before session history</strong></li>
+<li><code>agent.WithLateContextMessages(...)</code>: inject messages <strong>near the latest user turn</strong>
+  (after history, inserted before the latest user message)</li>
+</ul>
+<p>Both options affect only the current model request and are not persisted into
+the session events.</p>
+<p>Runnable example: <code>examples/prompt/late_context_messages</code>.</p>
 <h3 id="override-runtime-surfaces-for-a-specific-node-by-nodeid">Override Runtime Surfaces for a Specific Node by <code>nodeID</code></h3>
 <p>If you need to change one specific node in a <code>runner.Run(...)</code> call instead of
 changing the entire agent, pass <code>agent.WithSurfacePatchForNode(nodeID, patch)</code>.</p>
@@ -5997,7 +6268,7 @@ hard cutoffs.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="May 28, 2026 01:37:34 UTC">2026-05-28 01:37:34</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="June 9, 2026 09:57:12 UTC">2026-06-09 09:57:12</span>
   </span>
 
     
